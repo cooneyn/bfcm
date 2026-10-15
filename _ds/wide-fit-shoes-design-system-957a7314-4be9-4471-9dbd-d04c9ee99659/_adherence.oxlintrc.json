@@ -1,0 +1,278 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "campaign/**",
+              "design-canvas.jsx",
+              "ios-frame.jsx",
+              "preview/**",
+              "tweaks-panel.jsx",
+              "ui_kits/website/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Swiss 721 BT|Hanken Grotesk|Lexend|Playfair Display|DM Sans))/i]",
+        "message": "Font not provided by the design system. Available: Swiss 721 BT, Hanken Grotesk, Lexend, Playfair Display, DM Sans."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CollectionGrid'] > JSXAttribute > JSXIdentifier[name!=/^(?:heading|subheading|products|cols|key|ref|className|style|children)$/]",
+        "message": "<CollectionGrid> doesn't accept that prop. Declared props: heading, subheading, products, cols."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Hero'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|subtitle|ctaText|ctaSecondary|bgColor|key|ref|className|style|children)$/]",
+        "message": "<Hero> doesn't accept that prop. Declared props: title, subtitle, ctaText, ctaSecondary, bgColor."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|color|style|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size, color, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Nav'] > JSXAttribute > JSXIdentifier[name!=/^(?:dark|cartCount|key|ref|className|style|children)$/]",
+        "message": "<Nav> doesn't accept that prop. Declared props: dark, cartCount."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProductCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:brand|name|price|originalPrice|discount|sale|waterproof|rating|reviewCount|sizes|widths|swatches|images|key|ref|className|style|children)$/]",
+        "message": "<ProductCard> doesn't accept that prop. Declared props: brand, name, price, originalPrice, discount, sale, waterproof, rating, reviewCount, sizes, widths, swatches, images."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "CollectionGrid": {
+        "replaces": []
+      },
+      "Footer": {
+        "replaces": []
+      },
+      "Hero": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "Nav": {
+        "replaces": []
+      },
+      "ProductCard": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--color-badge-bg",
+      "--color-bg",
+      "--color-border",
+      "--color-border-light",
+      "--color-border-mid",
+      "--color-divider",
+      "--color-error-100",
+      "--color-error-50",
+      "--color-error-700",
+      "--color-fg",
+      "--color-fg-muted",
+      "--color-green-100",
+      "--color-green-200",
+      "--color-green-700",
+      "--color-green-900",
+      "--color-nav-dark",
+      "--color-nav-light",
+      "--color-navy-100",
+      "--color-navy-200",
+      "--color-navy-300",
+      "--color-navy-500",
+      "--color-navy-700",
+      "--color-navy-900",
+      "--color-primary",
+      "--color-primary-hover",
+      "--color-success-100",
+      "--color-success-700",
+      "--color-surface-light",
+      "--color-surface-mid",
+      "--color-surface-warm",
+      "--color-surface-white",
+      "--color-text-black",
+      "--color-text-body",
+      "--color-text-muted",
+      "--color-text-primary",
+      "--color-text-secondary",
+      "--color-yellow",
+      "--container-max",
+      "--container-pad",
+      "--container-pad-mobile",
+      "--font-button",
+      "--font-display",
+      "--font-label",
+      "--font-ui",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--shadow-card",
+      "--shadow-dropdown",
+      "--space-1",
+      "--space-10",
+      "--space-12",
+      "--space-16",
+      "--space-2",
+      "--space-20",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--text-badge",
+      "--text-body-lg",
+      "--text-body-md",
+      "--text-body-sm",
+      "--text-btn-lg",
+      "--text-btn-md",
+      "--text-btn-sm",
+      "--text-display-lg",
+      "--text-display-md",
+      "--text-display-sm",
+      "--text-display-xl",
+      "--text-h1",
+      "--text-h2",
+      "--text-h3",
+      "--text-h4",
+      "--text-label-lg",
+      "--text-label-md",
+      "--text-label-sm",
+      "--text-nav",
+      "--text-nav-link",
+      "--text-price-lg",
+      "--text-price-sm",
+      "--tracking-wide"
+    ],
+    "tokenKinds": {
+      "--color-navy-100": "color",
+      "--color-navy-200": "color",
+      "--color-navy-300": "color",
+      "--color-navy-500": "color",
+      "--color-navy-700": "color",
+      "--color-navy-900": "color",
+      "--color-green-100": "color",
+      "--color-green-200": "color",
+      "--color-green-700": "color",
+      "--color-green-900": "color",
+      "--color-surface-white": "color",
+      "--color-surface-light": "color",
+      "--color-surface-warm": "color",
+      "--color-surface-mid": "color",
+      "--color-text-primary": "font",
+      "--color-text-body": "font",
+      "--color-text-secondary": "font",
+      "--color-text-muted": "font",
+      "--color-text-black": "font",
+      "--color-border": "color",
+      "--color-border-mid": "color",
+      "--color-border-light": "color",
+      "--color-error-700": "color",
+      "--color-error-100": "color",
+      "--color-error-50": "color",
+      "--color-success-700": "color",
+      "--color-success-100": "color",
+      "--color-badge-bg": "color",
+      "--color-yellow": "color",
+      "--color-nav-dark": "color",
+      "--color-nav-light": "color",
+      "--shadow-card": "shadow",
+      "--shadow-dropdown": "shadow",
+      "--color-primary": "color",
+      "--color-primary-hover": "color",
+      "--color-bg": "color",
+      "--color-fg": "color",
+      "--color-fg-muted": "color",
+      "--color-divider": "color",
+      "--font-display": "font",
+      "--font-ui": "font",
+      "--font-button": "font",
+      "--font-label": "font",
+      "--text-display-xl": "font",
+      "--text-display-lg": "font",
+      "--text-display-md": "font",
+      "--text-display-sm": "font",
+      "--text-h1": "font",
+      "--text-h2": "font",
+      "--text-h3": "font",
+      "--text-h4": "font",
+      "--text-body-lg": "font",
+      "--text-body-md": "font",
+      "--text-body-sm": "font",
+      "--text-label-lg": "font",
+      "--text-label-md": "font",
+      "--text-label-sm": "font",
+      "--text-price-lg": "font",
+      "--text-price-sm": "font",
+      "--text-btn-lg": "font",
+      "--text-btn-md": "font",
+      "--text-btn-sm": "font",
+      "--text-badge": "font",
+      "--text-nav": "font",
+      "--text-nav-link": "font",
+      "--tracking-wide": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-8": "spacing",
+      "--space-10": "spacing",
+      "--space-12": "spacing",
+      "--space-16": "spacing",
+      "--space-20": "spacing",
+      "--container-max": "spacing",
+      "--container-pad": "spacing",
+      "--container-pad-mobile": "spacing",
+      "--radius-sm": "radius",
+      "--radius-md": "radius",
+      "--radius-lg": "radius",
+      "--radius-pill": "radius"
+    },
+    "fontFamilies": [
+      "DM Sans",
+      "Hanken Grotesk",
+      "Lexend",
+      "Playfair Display",
+      "Swiss 721 BT"
+    ]
+  }
+}
